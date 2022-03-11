@@ -18,13 +18,16 @@ function onDeviceReady() {
         $.ajax({
             method: "GET",
             url: urlIn,
-            contentType: "application/json", 
-            data: JSON.stringify({
+            headers: {
+              "accept": "application/json",
+              "Access-Control-Allow-Origin":"*"
+            }, // Headers. Informen a la API del tipus de trucada que s'està fent.
+            data: {
 
                 "usr":userIn,
                 "pass":pwIn
 
-            })  // necessitem això pq ens retorni un objecte JSON
+            }  // Dades a enviar al servidor
 
           }).done(function (msg) {
             for(let item in msg.artists) {

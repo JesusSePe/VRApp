@@ -10,13 +10,22 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
     function blah(){
-        console.log("Funciona");
         var urlIn = $("#urlIn").val();
-        console.log(urlIn);
+        var userIn = $("#username").val();
+        var pwIn = $("#pw").val();
+
+        console.log(urlIn,userIn,pwIn);
         $.ajax({
             method: "GET",
             url: urlIn,
-            dataType: "json",   // necessitem això pq ens retorni un objecte JSON
+            contentType: "application/json", 
+            data: JSON.stringify({
+
+                "usr":userIn,
+                "pass":pwIn
+
+            })  // necessitem això pq ens retorni un objecte JSON
+
           }).done(function (msg) {
             for(let item in msg.artists) {
               console.log(msg.artists[item]);

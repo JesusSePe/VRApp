@@ -4,7 +4,7 @@
     <title>VRApp</title>
     
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.gstatic.com https://code.jquery.com  data: https://musicbrainz.org gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com/icon?family=Material+Icons 'self' https://fonts.googleapis.com/css?family=Varela+Round&display=swap; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.gstatic.com https://code.jquery.com 'self' https://classvrroomapi.herokuapp.com/ data: https://musicbrainz.org gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com/icon?family=Material+Icons 'self' https://fonts.googleapis.com/css?family=Varela+Round&display=swap; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -88,23 +88,20 @@
           <form action="#">
             <div class="row">
               <div class="input-field col s12">
-                <p>URL</p>
+                <p style="color: white;">URL</p>
                 <input id="urlIn" type="text" class="validate">
-                <label for="url"></label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <p>Username</p>
+                <p style="color: white;">Username</p>
                 <input id="username" type="text" class="validate">
-                <label for="username"></label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <p>Password</p>
+                <p style="color: white;">Password</p>
                 <input id="pw" type="password" class="validate"></input>
-                <label for="pw"></label>
               </div>
             </div>
             <div class="row">
@@ -112,8 +109,6 @@
                 <button id="sendBut" class="btn waves-effect waves-light">Send
                   <i class="material-icons right">send</i>
                 </button>
-                <button id="prueba" >Send
-                  </button>
               </div>
             </div>
           </form>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Contact Us Form In Materialize CSS</title>
+    <title>VRApp</title>
+    
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.gstatic.com https://code.jquery.com  data: https://musicbrainz.org gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com/icon?family=Material+Icons 'self' https://fonts.googleapis.com/css?family=Varela+Round&display=swap; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -72,7 +74,7 @@
       }
       }
     </style>
-    <script type="text/javascript" src="js/index.js"></script>
+
 
   </head>
   <body>
@@ -87,7 +89,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <p>URL</p>
-                <input id="url" type="text" class="validate">
+                <input id="urlIn" type="text" class="validate">
                 <label for="url"></label>
               </div>
             </div>
@@ -107,14 +109,20 @@
             </div>
             <div class="row">
               <div class="col s12 mt-25">
-                <button class="btn waves-effect waves-light" type="submit">Send
-                <i class="material-icons right">send</i>
+                <button id="sendBut" class="btn waves-effect waves-light">Send
+                  <i class="material-icons right">send</i>
                 </button>
+                <button id="prueba" >Send
+                  </button>
               </div>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <script src="cordova.js"></script>
+    <!---<script type="text/javascript" src="jquery-3.3.1.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>

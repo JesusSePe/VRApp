@@ -10,14 +10,13 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
     function logIn(){
-        var urlIn = $("#urlIn").val();
+        localStorage.setItem("url",$("#urlIn").val())
         var userIn = $("#username").val();
         var pwIn = $("#pw").val();
 
-        console.log(urlIn,userIn,pwIn);
         $.ajax({
             method: "GET",
-            url: urlIn+"/api/login",
+            url: localStorage.getItem("url")+"/api/login",
             headers: {
               "accept": "application/json",
               "Access-Control-Allow-Origin":"*"
@@ -29,25 +28,10 @@ function onDeviceReady() {
 
           }).done(function (msg) {
             if(msg.status=="OK"){
-                var token = msg.session_token;
-                $.ajax({
-                  method: "GET",
-                  url: urlIn+"/api/get_courses",
-                  headers: {
-                    "accept": "application/json",
-                    "Access-Control-Allow-Origin":"*"
-                  }, 
-                  data: {
-                      "session_token":token,
-                  }
-      
-                }).done(function (msg) {
-                console.log(msg.course_list);
-                window.open("courses.html")
 
-                }).fail(function () {
-                  alert("ERROR");
-              });
+              localStorage.setItem("token", msg.session_token);
+              window.open("courses.html")
+ 
             }
             if(msg.status=="ERROR"){
               alert(msg.message);

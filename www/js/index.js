@@ -9,36 +9,41 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
-    function blah(){
-        var urlIn = $("#urlIn").val();
+    function logIn(){
+        localStorage.setItem("url",$("#urlIn").val())
         var userIn = $("#username").val();
         var pwIn = $("#pw").val();
 
-        console.log(urlIn,userIn,pwIn);
         $.ajax({
             method: "GET",
-            url: urlIn,
+            url: localStorage.getItem("url")+"/api/login",
             headers: {
               "accept": "application/json",
               "Access-Control-Allow-Origin":"*"
             }, // Headers. Informen a la API del tipus de trucada que s'està fent.
             data: {
-
-                "usr":userIn,
-                "pass":pwIn
-
+                "username":userIn,
+                "password":pwIn
             }  // Dades a enviar al servidor
 
           }).done(function (msg) {
-            for(let item in msg.artists) {
-              console.log(msg.artists[item]);
-              // aquí caldría fer mes coses, of course...
-              // ...
-            };
+            if(msg.status=="OK"){
+
+              localStorage.setItem("token", msg.session_token);
+              window.open("courses.html")
+ 
+            }
+            if(msg.status=="ERROR"){
+              alert(msg.message);
+              
+            }
+
           }).fail(function () {
               alert("ERROR");
+            
           });
     }
-   $("#sendBut").on("click", blah);
+
+   $("#sendBut").on("click", logIn);
 
 }

@@ -4,104 +4,45 @@
     <title>VRApp</title>
     
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8001 https://fonts.gstatic.com https://code.jquery.com 'self' https://classvrroomapi.herokuapp.com/ data: https://musicbrainz.org gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com/icon?family=Material+Icons 'self' https://fonts.googleapis.com/css?family=Varela+Round&display=swap; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8001 https://fonts.gstatic.com https://code.jquery.com 'self' https://classvrroomapi.herokuapp.com/ gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com 'self' css/index.css ; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-    <style type="text/css">
-      body{
-      font-family: 'Varela Round', sans-serif;
-      }
-      h1{
-      text-align: center;
-      color: #000;
-      }
-      img{
-      width: 100%;
-      padding: 30px 30px 30px 0;
-      }
-      .center{
-      display: flex;
-      align-content: center;
-      justify-content: center;
-      height: 365px;
-      }
-      .btn{
-      background-color: #2c3e50;
-      }
-      .btn:hover{
-      background-color: #34495e;
-      }
-      .container{
-      border: 1px solid #f2f2f2; 
-      margin-top: 30px;
-      margin-bottom: 30px;
-      border-radius: 4px;
-      }
-      .col.s6{
-      padding: 40px;
-      }
-      .mb-0{
-      margin-bottom: 0;
-      }
-      .mt-25{
-      margin-top: 25px;
-      }
-      button, input{
-      border-bottom-color: #fff !important;
-      }
-      .row{
-      margin: 0;
-      }
-      input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea,input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
-      box-shadow: none !important;
-      border-bottom:2px solid #2c3e50 !important; 
-      }
-      textarea.materialize-textarea{
-      height: 6rem;
-      }
-      .bg-main{
-      background-color: #3f3d56;
-      }
-      @media(max-width: 992px){
-      .s6:nth-child(1){
-      display: none;
-      }
-      .s6{
-      width: 100% !important;
-      padding: 20px !important;
-      }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/index.css"></link>
 
 
   </head>
   <body>
-    <header>
-      <h1>Log in</h1>
-    </header>
-    <div class="container pt-60">
+    <div class="container">
+      <div class="row">
+        <h1>Log in</h1>
+      </div>
       <div class="row">
         </div>
         <div class="col s6 bg-main">
           <form action="#">
             <div class="row">
               <div class="input-field col s12">
-                <p style="color: white;">URL</p>
-                <input id="urlIn" type="text" class="validate">
+                <i class="large material-icons icon_blue prefix">insert_link</i>
+                <input id="urlIn" type="text" class="validate" placeholder="Url">
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 ">
+                <i class="large material-icons icon_blue prefix">account_circle</i>
+                <input id="username" type="text" class="validate" placeholder="Username" ></input>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <p style="color: white;">Username</p>
-                <input id="username" type="text" class="validate">
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <p style="color: white;">Password</p>
-                <input id="pw" type="password" class="validate"></input>
+                <i class="large material-icons icon_blue prefix">lock_outline</i>
+                <input id="pw" type="password" class="validate" placeholder="Password"></input>
+                
+               
               </div>
             </div>
             <div class="row">
@@ -116,7 +57,6 @@
       </div>
     </div>
     <script src="cordova.js"></script>
-    <!---<script type="text/javascript" src="jquery-3.3.1.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
   </body>

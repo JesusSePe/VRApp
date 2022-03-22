@@ -66,7 +66,15 @@ function get_course_details(id,index){
 
         }).done(function(msg){
             console.log(msg.course)
-            $("#"+index).append(msg.course.title)
+            msg.course.elements.forEach(element => {
+                $("#"+index).append('<br><h3>'+element.title+'</h3><p>'+element.description+'</p>')
+            });
+            msg.course.tasks.forEach(task => {
+                $("#"+index).append('<br><h3>'+task.title+'</h3><p>'+task.description+'</p>')
+            });
+            msg.course.vr_tasks.forEach(vrtask => {
+                $("#"+index).append('<br><h3>'+vrtask.title+'</h3><p>'+vrtask.description+'</p>')
+            });
             
 
         }).fail(function(){

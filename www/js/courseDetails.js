@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('deviceready', onDeviceReady, false);
 function onDeviceReady() {
-    $('.tabs').tabs();
+    
     get_course_details();
 
    

@@ -27,6 +27,7 @@ function onDeviceReady() {
             if(msg.status=="OK"){
 
               localStorage.setItem("token", msg.session_token);
+              
               window.open("courses.html")
  
             }

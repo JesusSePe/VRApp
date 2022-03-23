@@ -1,9 +1,6 @@
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
-
-
-
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
@@ -30,6 +27,7 @@ function onDeviceReady() {
             if(msg.status=="OK"){
 
               localStorage.setItem("token", msg.session_token);
+              
               window.open("courses.html")
  
             }
@@ -39,7 +37,7 @@ function onDeviceReady() {
             }
 
           }).fail(function () {
-              alert("ERROR");
+              alert("Wrong credentials");
             
           });
     }

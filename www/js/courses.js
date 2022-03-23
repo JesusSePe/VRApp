@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Collapsible.init(elems, {});
   });
 
-
 document.addEventListener('deviceready', onDeviceReady, false);
+
 function onDeviceReady() {
 
-
     get_courses();
-
+    $('.tabs').tabs();
+   
 }
 
 function get_courses(){
@@ -31,11 +31,86 @@ function get_courses(){
         alert("ERROR");
     });
 }
+
 function show_courses(msg){
 
     for (let index = 0; index < msg.length; index++) {
         const course = msg[index];
-        $('#courses').append('<li> <div class="collapsible-header"><i class="material-icons">book</i>'+course.title+'</div> <div class="collapsible-body"><span>'+course.description+'</span><a class="btn waves-effect waves-light right"><i class="material-icons right">send</i></a></div></li>');
+        $('#course').append('<li> <div class="collapsible-header"><i class="material-icons">book</i>'+course.title+'</div><div class="collapsible-body"><span>'+course.description+'</span><a id="'+course._id+'" class="btn waves-effect waves-light right"><i class="material-icons right">send</i></a></div></li>');
+        
       };
+      console.log(msg)
+      $('.btn').on('click',get_course_details);
+
+      
 
 }
+
+function get_course_details(){
+    $.ajax({
+        method: "GET",
+        url: localStorage.getItem("url")+"/api/get_course_details",
+        headers: {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin":"*"
+        }, 
+        data: {
+            "session_token":localStorage.getItem("token"),
+            "courseID":$(this)[0].id
+        }
+
+        }).done(function(msg){
+            console.log(msg.course)
+            $("#det").empty();
+            $("#det").append('<li class="collection-header"><h4>'+msg.course.title+'</h4></li>')
+           //Attachments
+            $("#det").append('<h3><i class="material-icons medium prefix">assignment</i>Attachments</h3>');
+            msg.course.elements.forEach(element => {
+                console.log(element.type);
+                //HTML Attachment
+                if(element.type=="HTML"){
+                    $("#det").append('<br>   <li class="collection-item "> <h5><i class="material-icons prefix">language</i>'+element.title+'</h5><p>'+element.description+'</p><code>'+element.contents+'</code></li>')
+                }
+                //File Attachment
+                if(element.type=="file"){
+                    $("#det").append('<br>   <a href="#'+element.file+'" class="collection-item"> <h5> <i class="material-icons prefix">insert_drive_file</i>'+element.title+'</h5> <p>'+element.description+'</p></a>')
+                }
+                
+            });
+            //Tasks
+            $("#det").append('<h3><i class="material-icons medium prefix">attachment</i>Tasks</h3>');
+            msg.course.tasks.forEach(task => {
+                $("#det").append('<br>   <li class="collection-item"> <h5>'+task.title+'</h5><p>'+task.description+'</p></li>')
+                task.uploads.forEach(upload => {
+                    //File Task upload
+                    if(task.type=="file"){
+                        $("#det").append('<p>  student id: '+upload.studentID+'</p> File: <a  href="#'+upload.file+'">'+upload.text+'</a>  <p>Grade: '+upload.grade+'</p> <p>Feedback: '+upload.feedback+'</p> <hr> ')
+                    }
+                    //HTML Task upload
+                    if(task.type=="HTML"){
+                        $("#det").append('<p> student id: '+upload.studentID+'</p> <p>Text: '+upload.text+'</p>  <p>Grade: '+upload.grade+'</p> <p>Feedback: '+upload.feedback+'</p> <hr>')
+
+                    }
+                });
+            });
+            //VR Tasks
+            $("#det").append('<h3><i class="material-icons medium prefix">videocam</i>VR-Tasks</h3>');
+            msg.course.vr_tasks.forEach(vrtask => {
+                $("#det").append('<br>   <li class="collection-item"> <h5>'+vrtask.title+'</h5><p>'+vrtask.description+'</p> </li>')
+                //VR Task upload
+                vrtask.completions.forEach(upload => {
+                   $("#det").append('<p> student id: '+upload.studentID+'</p> <p>Data: '+upload.position_data.data
+                   +'</p> <h6>Auto Grade</h6> <ul><li>Passed items: '+upload.autograde.passed_items+'</li> <li>Failed items: '+upload.autograde.failed_items+'</li></li> <li>Comments: '+upload.autograde.comments+'</li></ul><p>Grade: '+upload.grade+'</p> <p>Feedback: '+upload.feedback+'</p> <hr>')
+
+                    
+                });
+            });
+            
+            M.Tabs.getInstance(document.getElementById("tabs")).select("courseDet");
+
+        }).fail(function(){
+            alert("ERROR")
+        });
+
+}
+

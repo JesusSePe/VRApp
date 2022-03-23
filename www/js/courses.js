@@ -67,9 +67,11 @@ function get_course_details(){
             $("#det").append('<h3><i class="material-icons medium prefix">assignment</i>Attachments</h3>');
             msg.course.elements.forEach(element => {
                 console.log(element.type);
+                //HTML Attachment
                 if(element.type=="HTML"){
                     $("#det").append('<br>   <li class="collection-item "> <h5><i class="material-icons prefix">language</i>'+element.title+'</h5><p>'+element.description+'</p><code>'+element.contents+'</code></li>')
                 }
+                //File Attachment
                 if(element.type=="file"){
                     $("#det").append('<br>   <a href="#'+element.file+'" class="collection-item"> <h5> <i class="material-icons prefix">insert_drive_file</i>'+element.title+'</h5> <p>'+element.description+'</p></a>')
                 }
@@ -80,11 +82,13 @@ function get_course_details(){
             msg.course.tasks.forEach(task => {
                 $("#det").append('<br>   <li class="collection-item"> <h5>'+task.title+'</h5><p>'+task.description+'</p></li>')
                 task.uploads.forEach(upload => {
+                    //File Task upload
                     if(task.type=="file"){
-                        $("#det").append('<p>  student id: '+upload.studentID+'</p> <a  href="#'+upload.file+'">'+upload.text+'</a>  <p>'+upload.grade+'</p> <p>'+upload.feedback+'</p> <hr> ')
+                        $("#det").append('<p>  student id: '+upload.studentID+'</p> File: <a  href="#'+upload.file+'">'+upload.text+'</a>  <p>Grade: '+upload.grade+'</p> <p>Feedback: '+upload.feedback+'</p> <hr> ')
                     }
+                    //HTML Task upload
                     if(task.type=="HTML"){
-                        $("#det").append('<p> student id: '+upload.studentID+'</p> <p>'+upload.text+'</p>  <p>'+upload.grade+'</p> <p>'+upload.feedback+'</p> <hr>')
+                        $("#det").append('<p> student id: '+upload.studentID+'</p> <p>Text: '+upload.text+'</p>  <p>Grade: '+upload.grade+'</p> <p>Feedback: '+upload.feedback+'</p> <hr>')
 
                     }
                 });
@@ -93,7 +97,13 @@ function get_course_details(){
             $("#det").append('<h3><i class="material-icons medium prefix">videocam</i>VR-Tasks</h3>');
             msg.course.vr_tasks.forEach(vrtask => {
                 $("#det").append('<br>   <li class="collection-item"> <h5>'+vrtask.title+'</h5><p>'+vrtask.description+'</p> </li>')
-                
+                //VR Task upload
+                vrtask.completions.forEach(upload => {
+                   $("#det").append('<p> student id: '+upload.studentID+'</p> <p>Data: '+upload.position_data.data
+                   +'</p> <h6>Auto Grade</h6> <ul><li>Passed items: '+upload.autograde.passed_items+'</li> <li>Failed items: '+upload.autograde.failed_items+'</li></li> <li>Comments: '+upload.autograde.comments+'</li></ul><p>Grade: '+upload.grade+'</p> <p>Feedback: '+upload.feedback+'</p> <hr>')
+
+                    
+                });
             });
             
             M.Tabs.getInstance(document.getElementById("tabs")).select("courseDet");

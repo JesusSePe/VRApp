@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8001 https://fonts.gstatic.com https://code.jquery.com 'self' https://classvrroomapi.herokuapp.com/ data: https://musicbrainz.org gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com ; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8001 https://fonts.gstatic.com https://code.jquery.com 'self' css/courses.css 'self' https://classvrroomapi.herokuapp.com/ data: https://musicbrainz.org gap: https://ssl.gstatic.com 'unsafe-eval'; media-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css 'self' https://fonts.googleapis.com ; script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js 'self' js/index.js">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/courses.css"></link>
+
     <title>Courses</title>
 </head>
 <body>
             
    <!--<ul id="courses" class="collapsible"></ul>-->
-
+   <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo left"><object data="/www/img/logo.svg" width="60" height="60"> </object></a>
+    </div>
+  </nav>
+  <main>
    <div class="row">
     <div class="col s12">
       <ul id="tabs" class="tabs">
@@ -28,7 +35,16 @@
     <div id="courses" class="col s12">  <ul id="course" class="collapsible"> </ul> </div>
 
   </div>
-   
+</main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        
+      </div>
+    </div>
+    </div>
+  </footer>
+
     <script src="cordova.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src= "js/materialize.js"></script>

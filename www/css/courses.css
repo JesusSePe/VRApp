@@ -1,0 +1,34 @@
+ <!--body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#ffffff;
+   /* background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
+
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    text-transform:uppercase;
+    width:100%;
+    overflow: hidden;
+}-->
+
+nav{
+    background-color: #5CB8B2;
+}
+.page-footer {
+    background-color: #5CB8B2;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: bicyclette, sans-serif;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

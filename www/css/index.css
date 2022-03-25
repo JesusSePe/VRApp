@@ -66,9 +66,6 @@ h1 {
     color: #418FDE;
     font-size:40px;
     font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
     text-align:center;
 }
 
@@ -162,16 +159,28 @@ h1 {
     .bg-main{
     background-color: #ffffff;
     display: flex;
-    min-height: 80vh;
+    min-height: 70vh;
     flex-direction: column;
-    justify-content: end;
-
-
-
-    
-   
-    
+    justify-content: center;
     }
+    nav{
+        min-height: 6em;
+        background-color: #5CB8B2;
+        margin-bottom: 10%;
+    }
+    .page-footer {
+        background-color: #5CB8B2;
+    }
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        font-family: bicyclette, sans-serif;
+      }
+    
+      main {
+        flex: 1 0 auto;
+      }
     @media(max-width: 992px){
     .s6:nth-child(1){
     display: none;

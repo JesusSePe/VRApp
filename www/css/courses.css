@@ -18,6 +18,8 @@
 
 nav{
     background-color: #5CB8B2;
+    min-height: 56px;
+  
 }
 .page-footer {
     background-color: #5CB8B2;
@@ -27,8 +29,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     font-family: bicyclette, sans-serif;
+    overflow-y: scroll;
   }
 
   main {
     flex: 1 0 auto;
+    overflow-y: scroll;
   }

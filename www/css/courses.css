@@ -36,8 +36,7 @@ body {
     flex: 1 0 auto;
     overflow-y: scroll;
   }
-  .collection
-  .collection-item {
+  .collection{
     color: #5CB8B2;
     background-color: #fff;
     line-height: 0rem;
@@ -57,3 +56,9 @@ span{
   background-color: transparent;
   color: #FF7276;
 }
+.btn{
+  background-color: #418FDE;
+  }
+  .btn:hover{
+  background-color: #FF7276;
+  }

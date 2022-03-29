@@ -74,16 +74,33 @@ function get_course_details(){
             });
             //VR Tasks
             msg.course.vr_tasks.forEach(vrtask => {
-                $("#det").append('<br>   <li class="collection-item"> <div><a id="'+vrtask.ID+'" class="btn vrbtn waves-effect waves-light right"><i class="material-icons right">send</i></a> <p>'+vrtask.title+'</p></div></li>')
-                $('.vrbtn').on('click',get_pin);
+                $("#det").append('<br>   <li class="collection-item"> <div><a id="'+vrtask.ID+'" class="btn vrbtn waves-effect waves-light right"><i class="material-icons">videocam</i></a> <p>'+vrtask.title+'</p></div></li>')
+                
             M.Tabs.getInstance(document.getElementById("tabs")).select("courseDet");
             });
+            $('.vrbtn').on('click',get_pin);
         }).fail(function(){
             alert("ERROR")
         });
 
         function get_pin(){
-            console.log($(this)[0].id)
+            $.ajax({
+                method: "GET",
+                url: localStorage.getItem("url")+"/api/pin_request",
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin":"*"
+                }, 
+                data: {
+                    "session_token":localStorage.getItem("token"),
+                    "taskID": $(this)[0].id
+                }
+        
+                }).done(function(msg){
+                    console.log(msg)
+                    alert(msg.PIN)
+                });
+
         }
 }
 

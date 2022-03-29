@@ -36,6 +36,10 @@ body {
     text-transform:uppercase;
     width:100%;
     overflow: hidden;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: bicyclette, sans-serif;
 }
 
 /* Portrait layout (default) */
@@ -159,24 +163,19 @@ h1 {
     .bg-main{
     background-color: #ffffff;
     display: flex;
-    min-height: 70vh;
+    min-height: 60vh;
     flex-direction: column;
     justify-content: center;
     }
     nav{
-        min-height: 6em;
+        min-height: 5em;
         background-color: #5CB8B2;
         margin-bottom: 10%;
     }
     .page-footer {
         background-color: #5CB8B2;
     }
-    body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-        font-family: bicyclette, sans-serif;
-      }
+   
     
       main {
         flex: 1 0 auto;

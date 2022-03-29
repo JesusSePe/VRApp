@@ -36,3 +36,24 @@ body {
     flex: 1 0 auto;
     overflow-y: scroll;
   }
+  .collection
+  .collection-item {
+    color: #5CB8B2;
+    background-color: #fff;
+    line-height: 0rem;
+    padding: 0px 8px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.collapsible-header {
+  color: #5CB8B2;
+  border-bottom: 1px solid #5CB8B2;
+}
+
+span{
+  color: #5CB8B2;
+}
+.tabs .tab a.active {
+  background-color: transparent;
+  color: #FF7276;
+}

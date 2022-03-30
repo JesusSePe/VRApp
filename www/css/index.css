@@ -26,7 +26,7 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#ffffff;
    /* background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
-    font-family: 'Ubuntu', sans-serif;
+   font-family: bicyclette, sans-serif;
     font-size:12px;
     height:100vh;
     margin:0px;
@@ -36,6 +36,10 @@ body {
     text-transform:uppercase;
     width:100%;
     overflow: hidden;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: bicyclette, sans-serif;
 }
 
 /* Portrait layout (default) */
@@ -63,11 +67,9 @@ body {
 }
 
 h1 {
+    color: #418FDE;
     font-size:40px;
     font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
     text-align:center;
 }
 
@@ -80,7 +82,7 @@ h1 {
 }
 
 .event.listening {
-    background-color:#333333;
+    background-color:#5CB8B2;
     display:block;
 }
 
@@ -113,10 +115,10 @@ h1 {
     height: 365px;
     }
     .btn{
-    background-color: #2c3e50;
+    background-color: #418FDE;
     }
     .btn:hover{
-    background-color: #34495e;
+    background-color: #FF7276;
     }
     .container{
     margin-top: 30px;
@@ -142,9 +144,10 @@ h1 {
     padding-left:30px;
     }
     a{
-    color: rgb(44, 135, 255);
+    color: #5CB8B2;
     }
     .large.material-icons.icon_blue{
+    color: #418FDE;
     font-size: 40px;
    
     
@@ -154,22 +157,29 @@ h1 {
     }
     input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea,input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
     box-shadow: none !important;
-    border-bottom:2px solid #6ba3db !important; 
+    border-bottom:2px solid #5CB8B2 !important; 
     }
 
     .bg-main{
     background-color: #ffffff;
     display: flex;
-    min-height: 80vh;
+    min-height: 60vh;
     flex-direction: column;
-    justify-content: end;
-
-
-
-    
+    justify-content: center;
+    }
+    nav{
+        min-height: 5em;
+        background-color: #5CB8B2;
+        margin-bottom: 10%;
+    }
+    .page-footer {
+        background-color: #5CB8B2;
+    }
    
     
-    }
+      main {
+        flex: 1 0 auto;
+      }
     @media(max-width: 992px){
     .s6:nth-child(1){
     display: none;

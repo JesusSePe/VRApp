@@ -9,6 +9,7 @@ function onDeviceReady() {
 
     get_courses();
     $('.tabs').tabs();
+    $('.modal').modal();
    
 }
 
@@ -65,17 +66,23 @@ function get_course_details(){
            //Attachments
             msg.course.elements.forEach(element => {
                 console.log(element.type);
-                $("#det").append('<br>   <li class="collection-item "> <p>'+element.title+'</p></li>')
+                $('#det').append('<li> <div class="collapsible-header"><i class="material-icons">import_contacts</i>'+element.title+'</div><div class="collapsible-body"><span>'+element.description+'</span></div></li>');
+                
             
             });
             //Tasks
             msg.course.tasks.forEach(task => {
-                $("#det").append('<br>   <li class="collection-item"> <p>'+task.title+'</p></li>')
+                $('#det').append('<li> <div class="collapsible-header"><i class="material-icons">assignment</i>'+task.title+'</div><div class="collapsible-body"><span> <table> <thead> <tr> <th>Grade</th> <th>Feedback</th> </tr> </thead> <tbody> <tr> <td>'+task.uploads[0].grade+'</td> <td>'+task.uploads[0].feedback+'</td>  </tr> </tbody> </table></span></div></li>');
             });
             //VR Tasks
+           
             msg.course.vr_tasks.forEach(vrtask => {
-                $("#det").append('<br>   <li class="collection-item"> <div><a id="'+vrtask.ID+'" class="btn vrbtn waves-effect waves-light right"><i class="material-icons">videocam</i></a> <p>'+vrtask.title+'</p></div></li>')
-                
+                $('#det').append('<li> <div class="collapsible-header"><i class="material-icons">assignment</i>'+vrtask.title+'</div><div class="collapsible-body"><ul class="collection id="hola"> </ul><a id="'+vrtask.ID+'" class="btn coursebtn waves-effect waves-light right"><i class="material-icons center">videocam</i></a></div></li>');
+
+                vrtask.completions.forEach(c =>{
+                $('#hola').append('<li class="collection-item">test</li>')
+
+                })
             M.Tabs.getInstance(document.getElementById("tabs")).select("courseDet");
             });
             $('.vrbtn').on('click',get_pin);

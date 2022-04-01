@@ -62,3 +62,6 @@ span{
   .btn:hover{
   background-color: #FF7276;
   }
+table{
+  border-collapse: unset;
+}

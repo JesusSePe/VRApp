@@ -77,14 +77,19 @@ function get_course_details(){
             //VR Tasks
            
             msg.course.vr_tasks.forEach(vrtask => {
-                $('#det').append('<li> <div class="collapsible-header"><i class="material-icons">assignment</i>'+vrtask.title+'</div><div class="collapsible-body"><ul class="collection id="hola"> </ul><a id="'+vrtask.ID+'" class="btn coursebtn waves-effect waves-light right"><i class="material-icons center">videocam</i></a></div></li>');
+                $('#det').append('<li> <div class="collapsible-header "><i class="material-icons">assignment</i>'+vrtask.title+'</div><div class="collapsible-body"><span><ul id="ul'+vrtask.ID+'" class="collection" > </ul></span></div></li>');
+               
+                    vrtask.completions.forEach(c =>{
+                        if (c.autograde != 'undefined') {
+                        $('#ul'+vrtask.ID).append('<li class="collection-item"><table > <thead> <tr> <th>Passed Items</th> <th>Failed Items</th> <th>Grade</th><th>Feedback</th>  </tr> </thead> <tbody> <tr> <td>'+c.autograde.passed_items+'</td><td> '+c.autograde.failed_items+'</td> <td>'+c.grade+'</td>  <td>'+c.feedback+'</td>  </tr> </tbody> </table></li>')
+                        }
+                    })
 
-                vrtask.completions.forEach(c =>{
-                $('#hola').append('<li class="collection-item">test</li>')
 
-                })
+            $('#ul'+vrtask.ID).append('<li class="collection-item"><a id="'+vrtask.ID+'" class="btn vrbtn waves-effect waves-light right"><i class="material-icons center">videocam</i></a></li>');
             M.Tabs.getInstance(document.getElementById("tabs")).select("courseDet");
             });
+            
             $('.vrbtn').on('click',get_pin);
         }).fail(function(){
             alert("ERROR")

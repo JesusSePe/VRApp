@@ -9,6 +9,7 @@ function onDeviceReady() {
 
     get_courses();
     $('.tabs').tabs();
+    $('.modal').modal();
    
 }
 
@@ -65,19 +66,30 @@ function get_course_details(){
            //Attachments
             msg.course.elements.forEach(element => {
                 console.log(element.type);
-                $("#det").append('<br>   <li class="collection-item "> <p>'+element.title+'</p></li>')
+                $('#det').append('<li> <div class="collapsible-header"><i class="material-icons">import_contacts</i>'+element.title+'</div><div class="collapsible-body"><span>'+element.description+'</span></div></li>');
+                
             
             });
             //Tasks
             msg.course.tasks.forEach(task => {
-                $("#det").append('<br>   <li class="collection-item"> <p>'+task.title+'</p></li>')
+                $('#det').append('<li> <div class="collapsible-header"><i class="material-icons">assignment</i>'+task.title+'</div><div class="collapsible-body"><span> <table> <thead> <tr> <th>Grade</th> <th>Feedback</th> </tr> </thead> <tbody> <tr> <td>'+task.uploads[0].grade+'</td> <td>'+task.uploads[0].feedback+'</td>  </tr> </tbody> </table></span></div></li>');
             });
             //VR Tasks
+           
             msg.course.vr_tasks.forEach(vrtask => {
-                $("#det").append('<br>   <li class="collection-item"> <div><a id="'+vrtask.ID+'" class="btn vrbtn waves-effect waves-light right"><i class="material-icons">videocam</i></a> <p>'+vrtask.title+'</p></div></li>')
-                
+                $('#det').append('<li> <div class="collapsible-header "><i class="material-icons">assignment</i>'+vrtask.title+'</div><div class="collapsible-body"><span><ul id="ul'+vrtask.ID+'" class="collection" > </ul></span></div></li>');
+               
+                    vrtask.completions.forEach(c =>{
+                        if (c.autograde != 'undefined') {
+                        $('#ul'+vrtask.ID).append('<li class="collection-item"><table > <thead> <tr> <th>Passed Items</th> <th>Failed Items</th> <th>Grade</th><th>Feedback</th>  </tr> </thead> <tbody> <tr> <td>'+c.autograde.passed_items+'</td><td> '+c.autograde.failed_items+'</td> <td>'+c.grade+'</td>  <td>'+c.feedback+'</td>  </tr> </tbody> </table></li>')
+                        }
+                    })
+
+
+            $('#ul'+vrtask.ID).append('<li class="collection-item"><a id="'+vrtask.ID+'" class="btn vrbtn waves-effect waves-light right"><i class="material-icons center">videocam</i></a></li>');
             M.Tabs.getInstance(document.getElementById("tabs")).select("courseDet");
             });
+            
             $('.vrbtn').on('click',get_pin);
         }).fail(function(){
             alert("ERROR")

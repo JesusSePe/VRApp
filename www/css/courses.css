@@ -62,3 +62,9 @@ span{
   .btn:hover{
   background-color: #FF7276;
   }
+table{
+  border-collapse: unset;
+}
+table.striped>tbody>tr:nth-child(odd) {
+  background-color: #ffbfc1;
+}

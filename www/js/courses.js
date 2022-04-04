@@ -19,15 +19,16 @@ function get_courses(){
         url: localStorage.getItem("url")+"/api/get_courses",
         headers: {
             "accept": "application/json",
-            "Access-Control-Allow-Origin":"*"
+
         }, 
         data: {
-            "session_token":localStorage.getItem("token"),
+            "token":localStorage.getItem("token"),
         }
 
         }).done(function (msg) {
             show_courses(msg.course_list)
-        
+            console.log(msg)
+
         }).fail(function () {
         alert("ERROR");
     });
@@ -53,10 +54,9 @@ function get_course_details(){
         url: localStorage.getItem("url")+"/api/get_course_details",
         headers: {
             "accept": "application/json",
-            "Access-Control-Allow-Origin":"*"
         }, 
         data: {
-            "session_token":localStorage.getItem("token"),
+            "token":localStorage.getItem("token"),
             "courseID":$(this)[0].id
         }
 

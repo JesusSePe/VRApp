@@ -16,17 +16,17 @@ function onDeviceReady() {
             url: localStorage.getItem("url")+"/api/login",
             headers: {
               "accept": "application/json",
-              "Access-Control-Allow-Origin":"*"
+
             }, // Headers. Informen a la API del tipus de trucada que s'està fent.
             data: {
-                "username":userIn,
+                "email":userIn,
                 "password":pwIn
             }  // Dades a enviar al servidor
 
           }).done(function (msg) {
             if(msg.status=="OK"){
 
-              localStorage.setItem("token", msg.session_token);
+              localStorage.setItem("token", msg.token);
               
               window.open("courses.html")
  

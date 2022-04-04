@@ -38,7 +38,7 @@ function show_courses(msg){
 
     for (let index = 0; index < msg.length; index++) {
         const course = msg[index];
-        $('#course').append('<li> <div class="collapsible-header"><i class="material-icons">book</i>'+course.title+'</div><div class="collapsible-body"><span>'+course.description+'</span><a id="'+course._id+'" class="btn coursebtn waves-effect waves-light right"><i class="material-icons right">send</i></a></div></li>');
+        $('#course').append('<li> <div class="collapsible-header"><i class="material-icons">book</i>'+course.title+'</div><div class="collapsible-body"><span>'+course.description+'</span><a id="'+course.courseID+'" class="btn coursebtn waves-effect waves-light right"><i class="material-icons right">send</i></a></div></li>');
         
       };
       console.log(msg)
@@ -49,6 +49,7 @@ function show_courses(msg){
 }
 
 function get_course_details(){
+    console.log($(this)[0].id)
     $.ajax({
         method: "GET",
         url: localStorage.getItem("url")+"/api/get_course_details",

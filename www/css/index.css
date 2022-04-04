@@ -71,6 +71,7 @@ h1 {
     font-size:40px;
     font-weight:normal;
     text-align:center;
+    margin: -1.2rem 0 1.68rem 0;
 }
 
 .event {
@@ -112,7 +113,7 @@ h1 {
     display: flex;
     align-content: center;
     justify-content: center;
-    height: 365px;
+    height: 25vh;
     }
     .btn{
     background-color: #418FDE;
@@ -163,9 +164,9 @@ h1 {
     .bg-main{
     background-color: #ffffff;
     display: flex;
-    min-height: 60vh;
+    min-height: 69vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     }
     nav{
         min-height: 5em;
@@ -188,5 +189,11 @@ h1 {
     width: 100% !important;
     padding: 20px !important;
     }
+    }
+
+    object {
+        position: fixed;
+        left: calc(50% - 100px);
+        top: 20vh;
     }
 
